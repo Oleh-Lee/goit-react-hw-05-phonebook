@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
-import styles from './ContactForm.module.css'
+import styles from "./ContactForm.module.css";
 
 class ContactForm extends Component {
   state = {
@@ -33,14 +33,16 @@ class ContactForm extends Component {
       <div className={styles.contactFormWraper}>
         <form onSubmit={this.handleSubmit}>
           <h2 className={styles.span}>Name</h2>
-          <input className={styles.input}
+          <input
+            className={styles.input}
             type="text"
             name="name"
             onChange={this.handleChange}
             value={this.state.name}
           />
           <h2 className={styles.span}>Number</h2>
-          <input className={styles.input}
+          <input
+            className={styles.input}
             type="tel"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             name="number"
@@ -48,7 +50,9 @@ class ContactForm extends Component {
             value={this.state.number}
           />
 
-          <button className={styles.button} type="submit">Add contact</button>
+          <button className={styles.button} type="submit">
+            Add contact
+          </button>
         </form>
       </div>
     );

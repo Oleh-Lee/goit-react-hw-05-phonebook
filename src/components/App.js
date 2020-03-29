@@ -4,8 +4,8 @@ import ContactList from "./contactList/ContactList";
 import Filter from "./filter/Filter";
 import styles from "./App.module.css";
 import { CSSTransition } from "react-transition-group";
+import errorTransition from "../transitions/error.module.css";
 import popTransition from "../transitions/pop.module.css";
-
 
 class App extends Component {
   state = {
@@ -16,7 +16,8 @@ class App extends Component {
       // { id: "id-4", name: "Annie Copeland", number: "227-91-26" }
     ],
     filter: "",
-    apearTitle: false
+    apearTitle: false,
+    isError: false
   };
 
   componentDidMount() {
@@ -39,7 +40,14 @@ class App extends Component {
       ? this.setState(prevstate => ({
           contacts: [...prevstate.contacts, data]
         }))
-      : alert(`${data.name} is already in contact`);
+      : this.setState({
+          isError: true
+        });
+    setTimeout(() => {
+      this.setState({
+        isError: false
+      });
+    }, 3000);
   };
   //`${data.name} is already in contact`
   deleteContact = e => {
@@ -64,9 +72,15 @@ class App extends Component {
   render() {
     return (
       <div className={styles.mainDiv}>
+        <CSSTransition
+          in={this.state.isError}
+          timeout={500}
+          classNames={errorTransition}
+          unmountOnExit
+        >
+          <div className={styles.error}>{`Contact  already exists!`}</div>
+        </CSSTransition>
 
-
-        
         <CSSTransition
           in={this.state.apearTitle}
           timeout={500}

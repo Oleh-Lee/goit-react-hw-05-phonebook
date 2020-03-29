@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from '../contactForm/ContactForm.module.css'
+import styles from "../contactForm/ContactForm.module.css";
 
 const Filter = ({ getName }) => (
   <div className={styles.contactFormWraper}>
