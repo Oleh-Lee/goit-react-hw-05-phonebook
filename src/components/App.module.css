@@ -1,0 +1,21 @@
+.mainDiv{
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+.mainTitle{
+    color: #3884ff;
+    transform: scale(1);
+    transition: transform 2200ms ease-in-out;
+    font-family:  'Open Sans',  sans-serif;
+    
+}
+
+.contacts{
+    font-family:  'Open Sans',  sans-serif;
+}
+
+ul{
+    padding: 0;
+}
